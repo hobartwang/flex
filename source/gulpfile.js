@@ -21,14 +21,9 @@ gulp.task('sass', function(){
       .pipe(gulp.dest('../styles'));
 });
 
-gulp.task('copy',function(){
-	gulp.src('index.html')
-		.pipe(gulp.dest('..'));
-});
-
 gulp.task('watch',function(){
-	gulp.watch(['*.html'],['copy']);
+	gulp.watch(['*/*.html'],['build']);
 	gulp.watch(['styles/*.scss'],['sass']);
 });
 
-gulp.task('default',['sass','copy','watch']);
+gulp.task('default',['sass','build','watch']);
